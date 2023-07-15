@@ -4,7 +4,8 @@ import {
   SafeAreaView,
   StyleSheet,
   FlatList,
-  StatusBar
+  StatusBar,
+  ImageBackground
 } from 'react-native'
 import React from 'react'
 import { Feather } from '@expo/vector-icons'
@@ -73,20 +74,27 @@ const UpcomingWeather = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Upcoming Weather</Text>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.dt_txt}
-        ListEmptyComponent={
-          <View>
-            <Text>The list is empty!</Text>
-          </View>
-        }
-        ItemSeparatorComponent={
-          <View style={{ backgroundColor: 'black', height: 10 }} />
-        }
-      />
+      <ImageBackground
+        source={require('../../assets/images/thunderstorm.jpg')}
+        alt="Thunderstorm and dark clouds"
+        style={styles.image}
+      >
+        <Text>Upcoming Weather</Text>
+
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.dt_txt}
+          ListEmptyComponent={
+            <View>
+              <Text>The list is empty!</Text>
+            </View>
+          }
+          ItemSeparatorComponent={
+            <View style={{ backgroundColor: 'black', height: 10 }} />
+          }
+        />
+      </ImageBackground>
     </SafeAreaView>
   )
 }
@@ -113,6 +121,9 @@ const styles = StyleSheet.create({
   date: {
     color: 'white',
     fontSize: 15
+  },
+  image: {
+    height: 400
   }
 })
 
