@@ -1,12 +1,14 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import CurrentWeather from './src/components/CurrentWeather'
-import UpcomingWeather from './src/components/UpcomingWeather'
+import CurrentWeather from './src/screens/CurrentWeather'
+import UpcomingWeather from './src/screens/UpcomingWeather'
+import City from './src/screens/City'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.wrapper}>
       {/* <CurrentWeather /> */}
-      <UpcomingWeather />
+      {/* <UpcomingWeather /> */}
+      <City />
     </SafeAreaView>
   )
 }
